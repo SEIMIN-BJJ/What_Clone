@@ -1,66 +1,69 @@
-import React from 'react';
+import { useState } from 'react';
+import { FullpageContainer, FullpageSection } from '@shinyongjun/react-fullpage';
+import '@shinyongjun/react-fullpage/css';
 import styled from 'styled-components';
-import { SectionsContainer, Section } from 'react-fullpage';
 
-const Container = styled.section`
-  width: 100%;
-  height: auto;
-  text-align: center;
+const PageOne = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eff;
-
-  @media screen and (max-width: 768px) {
-    overflow-x: hidden;
-  }
+  font-size: 4rem;
 `;
-const Content = styled.div`
-.section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: var(--background-);
-    color: var(--textcolor);
-    &.section1 {      
-    }  
-    &.section2 {
-    }  
-    &.section3 {
-    } 
-  }
+
+const PageTwo = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+`;
+
+const PageThree = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: #611212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+`;
+
+const Footer = styled.div`
+  width: 100vw;
+  height: 20vh;
+  background-color: #cfdb1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
 `;
 const MainSection = () => {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const sections = [
-    { content: 'Section 1 content' },
-    { content: 'Section 2 content' },
-    { content: 'Section 3 content' },
-  ];
-
-  const options = {
-    sectionClassName: 'section', // 각 섹션에 적용될 클래스 이름을 설정합니다.
-    anchors: ['section1', 'section2', 'section3'], // 각 섹션의 앵커를 설정합니다. 
-    scrollBar: false, // 스크롤 바를 표시할지 여부를 설정합니다.
-    navigation: true, // 페이지 내비게이션을 표시할지 여부를 설정합니다.
-    verticalAlign: false, // 섹션을 수직으로 정렬할지 여부를 설정합니다.
-    sectionPaddingTop: '50px', // 각 섹션의 상단 여백을 설정합니다.
-    sectionPaddingBottom: '50px', // 각 섹션의 하단 여백을 설정합니다.
-  };
   return (
-    <Container>
-      <SectionsContainer {...options}>
-        <Content>      
-          {sections.map((section, index) => (
-            <Section key={index} className={`section${index + 1}`}>
-              <div className="section-content">{section.content}</div>
-            </Section>
-          ))}
-          </Content>
-        </SectionsContainer>
-        </Container>
-  )
+    <FullpageContainer
+      activeIndex={activeIndex}
+      setActiveIndex={setActiveIndex}
+    >
+      <FullpageSection>
+        <PageOne>Section 1</PageOne>
+      </FullpageSection>
+      <FullpageSection>
+        <PageTwo>Section 2</PageTwo>
+      </FullpageSection>
+      <FullpageSection>
+        <PageThree>Section 3</PageThree>
+      </FullpageSection>
+      <FullpageSection isAutoHeight>
+        <Footer>Footer</Footer>
+      </FullpageSection>
+    </FullpageContainer>
+  );
 }
 
 export default MainSection;
