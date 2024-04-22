@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import MainSection from "component/pages/MainSection";
+import MainSection from '../component/pages/MainSection';
 
 const MenuRoutes = () => {
   const location = useLocation();
