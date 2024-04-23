@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { FullpageContainer, FullpageSection } from '@shinyongjun/react-fullpage';
 import '@shinyongjun/react-fullpage/css';
 import styled from 'styled-components';
+import { motion } from "framer-motion";
 import JapnOneIMG from "../assets/images/japan-1.jpg";
 import JapnTwoIMG from "../assets/images/japan-2.jpg";
 import JapnThreeIMG from "../assets/images/japan-3.jpg";
 import JapnFourIMG from "../assets/images/japan-4.jpg";
 
-const PageOne = styled.div`
+const PageOne = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   background-color: #ccc;
@@ -16,10 +17,11 @@ const PageOne = styled.div`
   align-items: center;
   font-size: 4rem;
   background-image: url(${JapnOneIMG});
+  color: #fff;
 
 `;
 
-const PageTwo = styled.div`
+const PageTwo = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   background-color: salmon;
@@ -31,7 +33,7 @@ const PageTwo = styled.div`
 
 `;
 
-const PageThree = styled.div`
+const PageThree = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   background-color: #611212;
@@ -107,23 +109,31 @@ const MainSection = () => {
       setActiveIndex={setActiveIndex}
     >
       <FullpageSection>
-        <PageOne>
-          Section 1
+        <PageOne
+          variants={animationLeft}
+          initial="hidden"
+          animate={animate ? "visible" : "hidden"}
+          transition={transition}>
         </PageOne>
       </FullpageSection>
       <FullpageSection>
-        <PageTwo>
-          Section 2
+        <PageTwo          
+          variants={animationLeft}
+          initial="hidden"
+          animate={animate ? "visible" : "hidden"}
+          transition={transition}>
         </PageTwo>
       </FullpageSection>
       <FullpageSection>
-        <PageThree>
-          Section 3
+        <PageThree
+          variants={animationLeft}
+          initial="hidden"
+          animate={animate ? "visible" : "hidden"}
+          transition={transition}>
         </PageThree>
       </FullpageSection>
       <FullpageSection isAutoHeight>
         <Footer>
-          Footer
         </Footer>
       </FullpageSection>
     </FullpageContainer>
