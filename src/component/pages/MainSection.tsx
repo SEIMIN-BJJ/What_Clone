@@ -5,30 +5,25 @@ import styled from 'styled-components';
 import { motion } from "framer-motion";
 import JapnOneIMG from "../assets/images/japan-1.jpg";
 import JapnTwoIMG from "../assets/images/japan-2.jpg";
-import JapnThreeIMG from "../assets/images/japan-3.jpg";
-import JapnFourIMG from "../assets/images/japan-4.jpg";
+import JapnThreeIMG from "../assets/images/japan-4.jpg";
+import JapnFourIMG from "../assets/images/japan-3.jpg";
 
 const PageOne = styled(motion.div)`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
   background-image: url(${JapnOneIMG});
-  color: #fff;
 
 `;
 
 const PageTwo = styled(motion.div)`
   width: 100vw;
   height: 100vh;
-  background-color: salmon;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
   background-image: url(${JapnTwoIMG});
 
 `;
@@ -36,23 +31,19 @@ const PageTwo = styled(motion.div)`
 const PageThree = styled(motion.div)`
   width: 100vw;
   height: 100vh;
-  background-color: #611212;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
   background-image: url(${JapnThreeIMG});
 
 `;
 
 const Footer = styled.div`
   width: 100vw;
-  height: 20vh;
-  background-color: #cfdb1e;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
   background-image: url(${JapnFourIMG});
   background-position: center center;
 
@@ -109,27 +100,15 @@ const MainSection = () => {
       setActiveIndex={setActiveIndex}
     >
       <FullpageSection>
-        <PageOne
-          variants={animationLeft}
-          initial="hidden"
-          animate={animate ? "visible" : "hidden"}
-          transition={transition}>
+        <PageOne>
         </PageOne>
       </FullpageSection>
       <FullpageSection>
-        <PageTwo          
-          variants={animationLeft}
-          initial="hidden"
-          animate={animate ? "visible" : "hidden"}
-          transition={transition}>
+        <PageTwo>
         </PageTwo>
       </FullpageSection>
       <FullpageSection>
-        <PageThree
-          variants={animationLeft}
-          initial="hidden"
-          animate={animate ? "visible" : "hidden"}
-          transition={transition}>
+        <PageThree>
         </PageThree>
       </FullpageSection>
       <FullpageSection isAutoHeight>
